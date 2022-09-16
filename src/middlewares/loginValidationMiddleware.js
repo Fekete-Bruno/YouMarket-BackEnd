@@ -1,5 +1,4 @@
 import loginSchema from "../schemas/loginSchema.js";
-import bcrypt from "bcrypt";
 
 function validateLogin(req, res, next) {
   const user = req.body;
