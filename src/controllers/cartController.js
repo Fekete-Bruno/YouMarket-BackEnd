@@ -14,7 +14,7 @@ async function getCart(req,res){
 }
 
 async function addCart(req,res){
-    const { product } = req.body;
+    const  product  = req.body;
     const userId = res.locals.user._id;
     try {
         await db.collection('carts').insertOne({userId,product});
