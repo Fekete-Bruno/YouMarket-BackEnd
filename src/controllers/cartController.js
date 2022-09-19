@@ -27,7 +27,6 @@ async function addCart(req,res){
 
 async function deleteCart(req,res){
     const cartId = req.body._id;
-    console.log(cartId);
     try {
         db.collection('carts').deleteOne({_id:ObjectId(cartId)});
     } catch (error) {
