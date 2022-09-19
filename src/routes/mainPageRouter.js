@@ -5,6 +5,6 @@ const mainPageRouter = express.Router();
 
 mainPageRouter.get("/", getProducts);
 
-mainPageRouter.get("/:productId",getProductById);
+mainPageRouter.get("/product/:productId",getProductById);
 
 export default mainPageRouter;
