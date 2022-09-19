@@ -1,5 +1,5 @@
+import { ObjectId } from "mongodb";
 import db from "../database/db.js";
-import cartRouter from "../routes/cartRouter.js";
 
 async function getCart(req,res){
     const userId = res.locals.user._id;
@@ -22,6 +22,18 @@ async function addCart(req,res){
         return res.sendStatus(500);
     }
 
+    return res.sendStatus(201);
+}
+
+async function deleteCart(req,res){
+    const cartId = req.body._id;
+    console.log(cartId);
+    try {
+        db.collection('carts').deleteOne({_id:ObjectId(cartId)});
+    } catch (error) {
+        console.error(error);
+        return res.sendStatus(500);
+    }
     return res.sendStatus(200);
 }
-export { getCart, addCart };
+export { getCart, addCart, deleteCart };
